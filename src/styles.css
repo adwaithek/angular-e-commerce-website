@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Mukta:wght@200;300&family=Rubik+Bubbles&family=Sevillana&family=Ubuntu:wght@300&display=swap');
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card-img-top{
+    width: 200px;
+    height: 200px;
+    transition: 0.4s;
+}
+
+.card-img-top:hover{
+    
+    transform: scale(1.20);
+    transition: 0.4s;
+
+}
