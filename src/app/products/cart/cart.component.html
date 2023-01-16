@@ -1,58 +1,86 @@
 <!-- empty cart -->
-
-<div class="container border border-primary m-5 p-5">
-    <div class="row text-center">
-        <div class="col">
-            <img src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif" width="200px" alt="">
-            <h3 class="mt-3">Your Cart is Empty</h3>
-            <button routerLink="/" class="btn btn-primary mt-2">Shop Now</button>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <table class="table border border-dark">
-                <thead>
-                    <th>NUmber</th>
-                    <th>name--</th>
-                    <th>image</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>100</td>
-                        <td>Men,s T shirt</td>
-                        <td><img src="data:image/jpeg;base64,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" alt=""></td>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pe</td>
-                        <td>500</td>
-                        <td><i class="fa fa-trash text-danger"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div style="float: right;" class="mb-3">
-                <button class="btn btn-danger">Empty Cart</button>&nbsp;
-                <button class="btn btn-warning">View More</button>&nbsp;
-                <button class="btn btn-success">Check Out</button>&nbsp;
-
-<b for="">Grand Total:500</b>
+<div class="p2" *ngif="cartitems.length==0">
+    <div class="container border border-primary m-5 p-5">
+        <div class="row text-center">
+            <div class="col">
+                <img src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif" width="200px" alt="">
+                <h3 class="mt-3">Your Cart is Empty</h3>
+                <button routerLink="/" class="btn btn-primary mt-2">Shop Now</button>
             </div>
         </div>
     </div>
-</div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="container" *ngIf="cartitems.length!=0">
+        <div class="row">
+            <div class="col">
+                <table class="table border border-dark">
+                    <thead>
+                        <th>NUmber</th>
+                        <th>name--</th>
+                        <th>image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of cartitems let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{product.title}}</td>
+                            <td><img [src]="product.image" width="100px" alt=""></td>
+                            <td>{{product.description}}</td>
+                            <td>${{product.price}}</td>
+                            <td><i   (click)="removeitem(product)" class="fa fa-trash text-danger"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="float: right;" class="mb-3">
+                    <button   (click)="removeall()"  class="btn btn-danger">Empty Cart</button>&nbsp;
+                    <button class="btn btn-warning">View More</button>&nbsp;
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Check Out</button>&nbsp;
+    
+    <b for="">Grand Total:${{grand}}</b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Check Out Page</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <h2>Delivery Address</h2>
+        <form action="" class="form-control">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Address/House No">
+            <input type="text" placeholder="Pincode">
+            <input type="text" placeholder="State">
+            <input type="text" placeholder="Country">
+            <input type="text" placeholder="Contact Number">
+            <input type="text" placeholder="E-mail Address">
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>

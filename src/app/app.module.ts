@@ -18,7 +18,7 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductsModule
+   ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

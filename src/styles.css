@@ -16,3 +16,12 @@ body{
     transition: 0.4s;
 
 }
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+.p3{
+    width: 500px;
+}

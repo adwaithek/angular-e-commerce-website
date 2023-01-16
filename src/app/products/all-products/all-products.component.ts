@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import{ApiService} from '../api.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-all-products',
@@ -10,7 +11,7 @@ export class AllProductsComponent  implements OnInit{
 allproducts:any=[]
 
 searchterm:string='';
-  constructor(private api:ApiService){}
+  constructor(private api:ApiService, private cart:CartService){}
 
   ngOnInit():void{
     this.api.getProducts().subscribe(
@@ -24,7 +25,21 @@ searchterm:string='';
       }
     )
   }
+  addtowishlist(product:any){
+    this.api.addtowishlist(product).subscribe(
+      (result:any)=>{
+        //(server to client)
+        alert(result.message)
+      },
+      (result:any)=>{
+        alert(result.error.message)
+    }
+    )
+  }
+addcart(product:any){
+  this.cart.addcart(product)
 
+}
 
 
 }
