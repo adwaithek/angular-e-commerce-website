@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from '../cart.service';
+import party from "party-js";
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +10,9 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent {
 cartitems:any=[]
-grand:Number=0;
-  constructor(private cart:CartService){
+grand:any
+updatetotal:any
+  constructor(private cart:CartService,private router:Router){
 
   }
 
@@ -31,6 +34,48 @@ removeitem(product:any){
 
 removeall(){
   this.cart.removeall()
+}
+
+
+
+discount5per(){
+  let discount=(this.grand*5)/100
+  this.updatetotal=this.grand-discount
+
+
+}
+
+
+discount10per(){
+  let discount=(this.grand*10)/100
+  this.updatetotal=this.grand-discount
+  
+}
+
+discount30per(){
+  let discount=(this.grand*30)/100
+  this.updatetotal=this.grand-discount
+  
+}
+
+discount50per(){
+  let discount=(this.grand*50)/100
+  this.updatetotal=this.grand-discount
+  
+}
+
+discount3per(source:any){
+ 
+  let discount=(this.grand*3)/100
+  this.updatetotal=this.grand-discount
+  party.confetti(source)
+  
+}
+
+proceed(){
+  alert('your order placed')
+  this.router.navigateByUrl('')
+  this.removeall()
 }
 
 }
