@@ -1,6 +1,6 @@
 <!-- empty cart -->
-<div class="p2" *ngif="cartitems.length==0">
-    <div class="container border border-primary m-5 p-5">
+<div class="p2" *ngIf="cartitems.length == 0">
+    <div class="container  m-5 p-5">
         <div class="row text-center">
             <div class="col">
                 <img src="https://i.pinimg.com/originals/66/22/ab/6622ab37c6db6ac166dfec760a2f2939.gif" width="200px" alt="">
@@ -10,90 +10,116 @@
         </div>
     </div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="container" *ngIf="cartitems.length!=0">
-        <div class="row">
+
+<!-- <div class="p3" *ngIf="cartitems.length == 0">
+    <div class="container border border-primary m-5 p-5">
+        <div class="row text-center">
             <div class="col">
-                <table class="table border border-dark">
-                    <thead>
-                        <th>NUmber</th>
-                        <th>name--</th>
-                        <th>image</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let product of cartitems let i=index">
-                            <td>{{i+1}}</td>
-                            <td>{{product.title}}</td>
-                            <td><img [src]="product.image" width="100px" alt=""></td>
-                            <td>{{product.description}}</td>
-                            <td>${{product.price}}</td>
-                            <td><i   (click)="removeitem(product)" class="fa fa-trash text-danger"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div style="float: right;" class="mb-3">
-                    <button   (click)="removeall()"  class="btn btn-danger">Empty Cart</button>&nbsp;
-                    <button class="btn btn-warning">View More</button>&nbsp;
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Check Out</button>&nbsp;
-    
-    <b for="">Grand Total:${{grand}}</b>
+                <img src="https://vividparts.com/site_assets/images/empty_cart.gif" width="200px" alt="" srcset="">
+                <h3 class="mt-3">Your Cart is Empty</h3>
+                <button routerLink="/" class="btn btn-primary">Shop Now</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" *ngIf="cartitems.length!=0">
+    <div class="row">
+        <div class="col">
+            <table class="table border border-dark">
+                <thead>
+                    <th>NUmber</th>
+                    <th>name--</th>
+                    <th>image</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of cartitems let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{product.title}}</td>
+                        <td><img [src]="product.image" width="100px" alt=""></td>
+                        <td>{{product.description}}</td>
+                        <td>${{product.price}}</td>
+                        <td><i (click)="removeitem(product)" class="fa fa-trash text-danger"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="float: right;" class="mb-3">
+                <button (click)="removeall()" class="btn btn-danger">Empty Cart</button>&nbsp;
+                <button class="btn btn-warning">View More</button>&nbsp;
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Check
+                    Out</button>&nbsp;
+
+                <b for="">Grand Total:${{grand}}</b>
+            </div>
+        </div>
+           
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Check Out Page</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h2>Delivery Address</h2>
+                <form action="" class="form-control">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Address/House No">
+                    <input type="text" placeholder="Pincode">
+                    <input type="text" placeholder="State">
+                    <input type="text" placeholder="Country">
+                    <input type="text" placeholder="Contact Number">
+                    <input type="text" placeholder="E-mail Address">
+                </form>
+                <div [ngSwitch]="grand">
+                    <h4>Discounts</h4>
+                    <img *ngSwitchCase="5" (click)="discount5per()"
+                        src="https://t4.ftcdn.net/jpg/00/98/97/57/360_F_98975745_sgSVAhoA5L8DgfEgoamIEZcKh0J6aBNI.jpg"
+                        width="100px" alt="">
+                    <img *ngSwitchCase="10" (click)="discount10per()"
+                        src="https://www.shutterstock.com/image-vector/10-sale-special-offers-off-260nw-1863594694.jpg"
+                        width="100px" alt="">
+                    <img *ngSwitchCase="30" (click)="discount30per()"
+                        src="data:image/png;base64,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"
+                        alt="">
+
+                    <img *ngSwitchCase="50" (click)="discount50per()"
+                        src="https://media.istockphoto.com/id/1155451635/vector/sale-of-special-offers-discount-with-the-price-is-50.jpg?b=1&s=612x612&w=0&k=20&c=rKK-3VRAHox4v0QbbHeF9R45pHNn7Mu2xrB-ZU_qDFY="
+                        width="100px" alt="">
+
+                    <img *ngSwitchDefault="3" (click)="discount3per($event.target)"
+                        src="https://media.istockphoto.com/id/1136155337/vector/promo-code-coupon-code-flat-vector-set-design-illustration-on-white-background.jpg?s=612x612&w=0&k=20&c=sM95EWp2rPqPfp0pGxKi4Jkjgz-0buvGtSSZkNQYIao="
+                        width="100px" alt="">
+
+
+                </div>
+                <div>
+                    <h5>Your Grand Total is here:{{updatetotal}}</h5>
                 </div>
             </div>
-        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="proceed()">
+                    Proceed</button>
+            </div>
+        </div>
     </div>
-    <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Check Out Page</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-        <h2>Delivery Address</h2>
-        <form action="" class="form-control">
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Address/House No">
-            <input type="text" placeholder="Pincode">
-            <input type="text" placeholder="State">
-            <input type="text" placeholder="Country">
-            <input type="text" placeholder="Contact Number">
-            <input type="text" placeholder="E-mail Address">
-        </form>
-        <div [ngSwitch]="grand">
-            <h4>Discounts</h4>
-            <img *ngSwitchCase="5" (click)="discount5per()" src="https://t4.ftcdn.net/jpg/00/98/97/57/360_F_98975745_sgSVAhoA5L8DgfEgoamIEZcKh0J6aBNI.jpg" width="100px" alt="">
-            <img *ngSwitchCase="10" (click)="discount10per()" src="https://www.shutterstock.com/image-vector/10-sale-special-offers-off-260nw-1863594694.jpg" width="100px" alt="">
-            <img *ngSwitchCase="30" (click)="discount30per()" src="data:image/png;base64,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" alt="">
-
-            <img *ngSwitchCase="50" (click)="discount50per()" src="https://media.istockphoto.com/id/1155451635/vector/sale-of-special-offers-discount-with-the-price-is-50.jpg?b=1&s=612x612&w=0&k=20&c=rKK-3VRAHox4v0QbbHeF9R45pHNn7Mu2xrB-ZU_qDFY=" width="100px" alt="">
-            
-            <img *ngSwitchDefault="3"  (click)="discount3per($event.target)" src="https://media.istockphoto.com/id/1136155337/vector/promo-code-coupon-code-flat-vector-set-design-illustration-on-white-background.jpg?s=612x612&w=0&k=20&c=sM95EWp2rPqPfp0pGxKi4Jkjgz-0buvGtSSZkNQYIao=" width="100px" alt="">
-        
-        
-        </div>
-        <div><h5>Your Grand Total is here:{{updatetotal}}</h5></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="proceed()" > Proceed</button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
